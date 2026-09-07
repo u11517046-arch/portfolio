@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人作品集 | Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.3);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            line-height: 1.6; 
+            padding: 40px 20px; 
+            max-width: 900px; 
+            margin: 0 auto; 
+        }
+        header { text-align: center; padding: 60px 0 40px; }
+        h1 { 
+            font-size: 2.8rem; 
+            margin-bottom: 12px; 
+            background: linear-gradient(135deg, #38bdf8, #818cf8); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        p.subtitle { color: var(--text-sub); font-size: 1.2rem; font-weight: 300; }
+        section { margin: 50px 0; }
+        h2 { 
+            font-size: 1.5rem; 
+            border-left: 4px solid var(--accent); 
+            padding-left: 12px; 
+            margin-bottom: 24px; 
+            color: var(--text-main); 
+        }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .card { 
+            background: var(--card-bg); 
+            border: 1px solid #334155; 
+            border-radius: 12px; 
+            padding: 24px; 
+            transition: all 0.3s ease; 
+        }
+        .card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--accent); 
+            box-shadow: 0 10px 25px -5px var(--accent-glow); 
+        }
+        .card h3 { color: var(--accent); margin-bottom: 8px; font-size: 1.2rem; }
+        .card p { color: var(--text-sub); font-size: 0.95rem; }
+        .skills-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
+        .skills-list li { 
+            background: var(--card-bg); 
+            border: 1px solid #334155; 
+            color: var(--accent); 
+            padding: 8px 16px; 
+            border-radius: 20px; 
+            font-size: 0.9rem; 
+        }
+        footer { text-align: center; padding-top: 40px; border-top: 1px solid #334155; color: var(--text-sub); font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>[你的名字] 的作品集</h1>
+        <p class="subtitle">大一新生 | 未來全棧工程師 / 設計師</p>
+    </header>
+
+    <section>
+        <h2>關於我 (About Me)</h2>
+        <p style="color: var(--text-sub);">你好！我是大一新生。目前正積極學習網頁開發與專案實作，這個網站將記錄我大學四年的成長歷程與專案作品。</p>
+    </section>
+
+    <section>
+        <h2>作品展示 (Projects)</h2>
+        <div class="project-grid">
+            <div class="card">
+                <h3>個人作品集網站</h3>
+                <p>使用 HTML/CSS 打造，搭配暗色系現代 UI 設計，並透過 GitHub Pages 進行自動部署。</p>
+            </div>
+            <div class="card">
+                <h3>課堂專案（規劃中）</h3>
+                <p>預計於大一下學期完成第一個互動式網頁應用。</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>技能樹 (Skills)</h2>
+        <ul class="skills-list">
+            <li>HTML5 / CSS3</li>
+            <li>Git & GitHub</li>
+            <li>UI/UX 基礎</li>
+            <li>持續學習中...</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2026 [你的名字] - Built with GitHub Pages</p>
+    </footer>
+
+</body>
+</html>
