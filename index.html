@@ -1,111 +1,622 @@
+```html
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人作品集 | Portfolio</title>
+
+    <title>吳畇珊｜個人作品集</title>
+
     <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-sub: #94a3b8;
-            --accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.3);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
-            background-color: var(--bg-color); 
-            color: var(--text-main); 
-            line-height: 1.6; 
-            padding: 40px 20px; 
-            max-width: 900px; 
-            margin: 0 auto; 
+
+        body {
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            line-height: 1.8;
         }
-        header { text-align: center; padding: 60px 0 40px; }
-        h1 { 
-            font-size: 2.8rem; 
-            margin-bottom: 12px; 
-            background: linear-gradient(135deg, #38bdf8, #818cf8); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
+
+        /* 導覽列 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #334155;
         }
-        p.subtitle { color: var(--text-sub); font-size: 1.2rem; font-weight: 300; }
-        section { margin: 50px 0; }
-        h2 { 
-            font-size: 1.5rem; 
-            border-left: 4px solid var(--accent); 
-            padding-left: 12px; 
-            margin-bottom: 24px; 
-            color: var(--text-main); 
+
+        nav .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-        .card { 
-            background: var(--card-bg); 
-            border: 1px solid #334155; 
-            border-radius: 12px; 
-            padding: 24px; 
-            transition: all 0.3s ease; 
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
         }
-        .card:hover { 
-            transform: translateY(-5px); 
-            border-color: var(--accent); 
-            box-shadow: 0 10px 25px -5px var(--accent-glow); 
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
         }
-        .card h3 { color: var(--accent); margin-bottom: 8px; font-size: 1.2rem; }
-        .card p { color: var(--text-sub); font-size: 0.95rem; }
-        .skills-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
-        .skills-list li { 
-            background: var(--card-bg); 
-            border: 1px solid #334155; 
-            color: var(--accent); 
-            padding: 8px 16px; 
-            border-radius: 20px; 
-            font-size: 0.9rem; 
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: 0.3s;
         }
-        footer { text-align: center; padding-top: 40px; border-top: 1px solid #334155; color: var(--text-sub); font-size: 0.85rem; }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* 共用區域 */
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 25px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-title span {
+            color: #38bdf8;
+        }
+
+        /* 首頁 */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 120px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            color: #cbd5e1;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            margin: 5px;
+            border-radius: 30px;
+            background: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #7dd3fc;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #38bdf8;
+            border: 1px solid #38bdf8;
+        }
+
+        /* 關於我 */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #334155;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #38bdf8;
+        }
+
+        .card p {
+            color: #cbd5e1;
+        }
+
+        /* 技能 */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #334155;
+        }
+
+        .skill h3 {
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .skill p {
+            color: #cbd5e1;
+        }
+
+        /* 作品 */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .project-number {
+            font-size: 0.9rem;
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .project h3 {
+            margin-bottom: 12px;
+        }
+
+        .project p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 3px;
+            border-radius: 15px;
+            background: #334155;
+            color: #cbd5e1;
+            font-size: 0.8rem;
+        }
+
+        /* 學習歷程 */
+        .timeline {
+            border-left: 2px solid #38bdf8;
+            padding-left: 25px;
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+        }
+
+        .timeline-item h3 {
+            color: #38bdf8;
+        }
+
+        .timeline-item p {
+            color: #cbd5e1;
+        }
+
+        /* 聯絡 */
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #cbd5e1;
+            margin-bottom: 25px;
+        }
+
+        /* 頁尾 */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #020617;
+            color: #94a3b8;
+        }
+
+        /* 手機版 */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 10px;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about,
+            .skills,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 80px 20px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
-    <header>
-        <h1>[你的名字] 的作品集</h1>
-        <p class="subtitle">大一新生 | 未來全棧工程師 / 設計師</p>
-    </header>
+    <!-- 導覽列 -->
+    <nav>
+        <div class="container">
+            <div class="logo">吳畇珊｜Portfolio</div>
 
-    <section>
-        <h2>關於我 (About Me)</h2>
-        <p style="color: var(--text-sub);">你好！我是大一新生。目前正積極學習網頁開發與專案實作，這個網站將記錄我大學四年的成長歷程與專案作品。</p>
-    </section>
+            <ul>
+                <li><a href="#home">首頁</a></li>
+                <li><a href="#about">關於我</a></li>
+                <li><a href="#skills">技能</a></li>
+                <li><a href="#projects">作品</a></li>
+                <li><a href="#learning">學習歷程</a></li>
+                <li><a href="#contact">聯絡我</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <section>
-        <h2>作品展示 (Projects)</h2>
-        <div class="project-grid">
-            <div class="card">
-                <h3>個人作品集網站</h3>
-                <p>使用 HTML/CSS 打造，搭配暗色系現代 UI 設計，並透過 GitHub Pages 進行自動部署。</p>
-            </div>
-            <div class="card">
-                <h3>課堂專案（規劃中）</h3>
-                <p>預計於大一下學期完成第一個互動式網頁應用。</p>
-            </div>
+
+    <!-- 首頁 -->
+    <section id="home">
+        <div class="hero">
+
+            <h1>
+                Hi, 我是 <span>吳畇珊</span>
+            </h1>
+
+            <p>
+                大一新生｜正在學習網頁開發與數位創作
+            </p>
+
+            <p>
+                用大學四年，累積屬於自己的作品與能力。
+            </p>
+
+            <a href="#projects" class="btn">
+                查看我的作品
+            </a>
+
+            <a href="#about" class="btn btn-outline">
+                認識我
+            </a>
+
         </div>
     </section>
 
-    <section>
-        <h2>技能樹 (Skills)</h2>
-        <ul class="skills-list">
-            <li>HTML5 / CSS3</li>
-            <li>Git & GitHub</li>
-            <li>UI/UX 基礎</li>
-            <li>持續學習中...</li>
-        </ul>
+
+    <!-- 關於我 -->
+    <section id="about">
+
+        <h2 class="section-title">
+            關於 <span>我</span>
+        </h2>
+
+        <div class="about">
+
+            <div class="card">
+                <h3>👋 Hello!</h3>
+
+                <p>
+                    你好，我是吳畇珊，目前是一名大學一年級學生。
+                    現在正在學習網頁開發、GitHub、UI/UX
+                    與各種數位工具。
+                </p>
+
+                <br>
+
+                <p>
+                    這個網站會成為我的大學四年成長紀錄，
+                    我會持續把課堂作業、專案與學習成果放在這裡。
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>🎯 我的目標</h3>
+
+                <p>
+                    我的目標是在大學四年中持續累積實力，
+                    從基礎的 HTML、CSS 開始，
+                    慢慢學習 JavaScript、程式設計與完整的專案開發。
+                </p>
+
+                <br>
+
+                <p>
+                    希望到了大四畢業時，
+                    這個網站可以讓別人快速了解我的能力與作品。
+                </p>
+            </div>
+
+        </div>
+
     </section>
 
+
+    <!-- 技能 -->
+    <section id="skills">
+
+        <h2 class="section-title">
+            我的 <span>技能</span>
+        </h2>
+
+        <div class="skills">
+
+            <div class="skill">
+                <h3>🌐 HTML / CSS</h3>
+                <p>
+                    學習網頁結構、版面設計、RWD
+                    與基本的網站視覺呈現。
+                </p>
+            </div>
+
+            <div class="skill">
+                <h3>💻 Git & GitHub</h3>
+                <p>
+                    學習使用 GitHub 管理程式碼，
+                    並透過 GitHub Pages 部署自己的網站。
+                </p>
+            </div>
+
+            <div class="skill">
+                <h3>🎨 UI / UX</h3>
+                <p>
+                    開始學習使用者介面與使用者體驗，
+                    思考如何讓網站更容易使用。
+                </p>
+            </div>
+
+            <div class="skill">
+                <h3>📚 持續學習</h3>
+                <p>
+                    目前仍然是學習階段，
+                    未來會持續增加 JavaScript、
+                    Python 以及其他技術。
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 作品 -->
+    <section id="projects">
+
+        <h2 class="section-title">
+            我的 <span>作品</span>
+        </h2>
+
+        <div class="projects">
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 01
+                </div>
+
+                <h3>個人作品集網站</h3>
+
+                <p>
+                    第一個屬於自己的個人作品集網站，
+                    使用 HTML 與 CSS 製作，
+                    並使用 GitHub Pages 發布。
+                </p>
+
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">GitHub Pages</span>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 02
+                </div>
+
+                <h3>課堂學習專案</h3>
+
+                <p>
+                    這是我大學課程中的學習作品。
+                    未來會持續加入更多課堂作業、
+                    網頁作品與專案成果。
+                </p>
+
+                <span class="tag">Learning</span>
+                <span class="tag">Web</span>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 03
+                </div>
+
+                <h3>未來互動式網站</h3>
+
+                <p>
+                    預計未來學習 JavaScript 後，
+                    製作具有互動功能的網站，
+                    作為下一階段的作品。
+                </p>
+
+                <span class="tag">JavaScript</span>
+                <span class="tag">Web App</span>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 04
+                </div>
+
+                <h3>我的大學四年</h3>
+
+                <p>
+                    這個區塊會持續更新。
+                    未來將放入更多專案、比賽、
+                    課程成果與個人作品。
+                </p>
+
+                <span class="tag">Future</span>
+                <span class="tag">Portfolio</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 學習歷程 -->
+    <section id="learning">
+
+        <h2 class="section-title">
+            學習 <span>歷程</span>
+        </h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <h3>2026｜大一</h3>
+
+                <p>
+                    開始學習 HTML、CSS、GitHub，
+                    並完成自己的第一個個人作品集網站。
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>2027｜大二</h3>
+
+                <p>
+                    預計學習更多程式語言與網頁技術，
+                    並開始製作更完整的專案。
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>2028｜大三</h3>
+
+                <p>
+                    希望能參與更多專案、競賽或實習，
+                    累積實際經驗。
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>2029｜大四</h3>
+
+                <p>
+                    整理大學四年的作品與成果，
+                    讓這個網站成為我的專業作品集。
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 聯絡我 -->
+    <section id="contact">
+
+        <div class="contact">
+
+            <h2 class="section-title">
+                聯絡 <span>我</span>
+            </h2>
+
+            <p>
+                如果你想了解我的作品或學習歷程，
+                歡迎透過 GitHub 查看我的專案。
+            </p>
+
+            <a
+                href="https://github.com/u11517046-arch"
+                target="_blank"
+                class="btn"
+            >
+                查看我的 GitHub
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- 頁尾 -->
     <footer>
-        <p>© 2026 [你的名字] - Built with GitHub Pages</p>
+
+        <p>
+            © 2026 吳畇珊｜Personal Portfolio
+        </p>
+
+        <p>
+            Built with HTML & CSS + GitHub Pages
+        </p>
+
     </footer>
 
 </body>
 </html>
+```
