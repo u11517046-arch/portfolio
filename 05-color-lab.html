@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>色彩實驗室｜活動 05</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f2eb;color:#243d46;font-family:"Microsoft JhengHei",sans-serif;line-height:1.7}main{max-width:1120px;margin:auto;padding:32px 24px}h1{font-size:clamp(28px,5vw,42px);margin:0}h2{margin-top:0;font-size:22px}.eyebrow{letter-spacing:.15em;font-size:13px;color:#47655d}.intro{max-width:760px}.workspace{display:grid;grid-template-columns:minmax(260px,350px) minmax(0,1fr);gap:24px;margin-top:28px}.panel{background:white;border:1px solid #c8d6cf;border-radius:16px;padding:24px}.field{margin:18px 0}label{display:block;font-weight:bold;margin-bottom:6px}input,select,button{font:inherit}input[type=text],select{width:100%;padding:10px;border:1px solid #72877e;border-radius:6px;background:white;color:#243d46}input[type=color]{width:100%;height:56px;border:1px solid #72877e;background:white;padding:4px;border-radius:6px;cursor:pointer}button{padding:9px 14px;border:1px solid #47655d;border-radius:7px;background:#edf3ef;color:#243d46;cursor:pointer}button:hover{background:#dce9e2}:focus-visible{outline:3px solid #17596e;outline-offset:3px}.actions{display:flex;gap:8px;flex-wrap:wrap}.palette{display:flex;flex-wrap:wrap;gap:10px}.swatch{width:36px;height:36px;padding:0;border:2px solid #72877e;border-radius:50%}.hint{font-size:14px;color:#47655d}.error{min-height:1.7em;color:#9c2525;font-size:14px;margin:4px 0}#status{min-height:3.4em;font-size:14px}.preview-stage{background:#e5eeeb;padding:24px;border-radius:12px}.card{background:#fff;border:2px solid #b9cfc5;border-radius:8px;padding:16px;box-shadow:0 3px 10px #00000012}.card h2{color:#315f57;font-size:26px}.card p{font-size:16px;line-height:1.5}.highlight{color:#8a3a34;font-weight:bold}code{font-family:Consolas,monospace;overflow-wrap:anywhere}pre{white-space:pre-wrap;background:#173d49;color:#fff;padding:16px;border-radius:8px}details{margin-top:24px}summary{cursor:pointer;font-weight:bold}a{color:#17596e}button:disabled{opacity:.55;cursor:not-allowed}@media(max-width:760px){.workspace{grid-template-columns:1fr}main{padding:24px 16px}.panel,.preview-stage{padding:16px}}
+</style>
+</head>
+<body>
+<main>
+<p class="eyebrow">ACTIVITY 05 · COLOR LAB</p>
+<h1>色彩實驗室</h1>
+<p class="intro">挑一個顏色，看看它放在標題、卡片背景或邊框上的效果。喜歡之後，複製色碼，回到自己的 CSS 修改。</p>
+<div class="workspace">
+<section class="panel" aria-labelledby="controls-title">
+<h2 id="controls-title">1．挑色與試色</h2>
+<div class="field"><label for="target">要改哪裡？</label><select id="target"><option value="title">標題文字</option><option value="background">卡片背景</option><option value="border">卡片邊框</option></select></div>
+<div class="field"><label for="picker">點開選色器</label><input id="picker" type="color" value="#315f57"></div>
+<div class="field"><label for="hex">或輸入六位 HEX 色碼</label><input id="hex" type="text" value="#315F57" maxlength="7" spellcheck="false" autocomplete="off" aria-describedby="hex-help error"><div id="hex-help" class="hint">例如 #315F57；可省略 #。使用 0–9、A–F。</div><p id="error" class="error" aria-live="polite"></p></div>
+<p class="hint">也可以選一個預設色票：</p>
+<div id="palette" class="palette" aria-label="預設色票"></div>
+<div class="actions" style="margin-top:20px"><button id="random" type="button">隨機抽色</button><button id="copy" type="button">複製色碼</button><button id="reset" type="button">全部還原</button></div>
+<p id="status" role="status">三個位置的顏色會各自保留。重新開啟本頁後回到初始配色。</p>
+</section>
+<section class="panel" aria-labelledby="preview-title">
+<h2 id="preview-title">2．即時看效果</h2>
+<div class="preview-stage"><article id="card" class="card"><h2 id="card-title">週末故事創作社</h2><p>把生活中的小發現，變成一篇有角色、有情節的故事。歡迎喜歡畫畫、說故事或觀察生活的你。</p><p class="highlight">本週任務：替故事角色設計一個小難題。</p></article></div>
+<p>目前套用：<strong id="current">標題文字 #315F57</strong></p>
+<h2>3．帶回你的 CSS</h2>
+<p id="location">在 h2 規則內替換 color 的值，其他設定保留。</p>
+<pre><code id="css-code">h2 { color: #315F57; }</code></pre>
+<p class="hint">這裡只顯示目前位置的顏色設定；不會自動修改你的作業檔案，也不需要把整個實驗室貼進作業。</p>
+<p><a href="05-css-style.html">開啟活動 05 原始練習頁</a></p>
+</section>
+</div>
+<details><summary>色碼怎麼讀？</summary><p><code>#RRGGBB</code> 分成紅、綠、藍三組，每組由 00 到 FF。試試 <code>#FF0000</code>、<code>#00FF00</code>、<code>#0000FF</code>；<code>#000000</code> 是黑，<code>#FFFFFF</code> 是白。這次先觀察，不必練習進位換算。</p><p>隨機顏色不一定好讀。若文字和背景太接近，換一個試試；活動 09 再正式檢查對比。工具沒有替你保證配色符合無障礙要求。</p></details>
+<noscript><p>請在允許 JavaScript 的瀏覽器開啟本機 HTML，才能使用選色與預覽功能。</p></noscript>
+</main>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const defaults = {title:'#315F57',background:'#FFFFFF',border:'#B9CFC5'};
+let colors = {...defaults};
+const labels = {title:'標題文字',background:'卡片背景',border:'卡片邊框'};
+const rules = {title:['h2','color'],background:['.card','background'],border:['.card','border-color']};
+function normalize(value) {
+  const clean = value.trim().replace(/^#/, '');
+  return /^[0-9a-f]{6}$/i.test(clean) ? '#'+clean.toUpperCase() : null;
+}
+function render(syncInput=true) {
+  const target=$('target').value, color=colors[target];
+  $('card-title').style.color=colors.title;
+  $('card').style.backgroundColor=colors.background;
+  $('card').style.borderColor=colors.border;
+  $('picker').value=color.toLowerCase();
+  if(syncInput) $('hex').value=color;
+  $('current').textContent=labels[target]+' '+color;
+  const [selector,property]=rules[target];
+  $('css-code').textContent=selector+' { '+property+': '+color+'; }';
+  $('location').textContent=target==='border'
+    ? '在 .card 規則內，替換 border 設定最後的色碼；保留 2px solid。也可在 border 後加上以下 border-color 設定。'
+    : '在 '+selector+' 規則內替換 '+property+' 的值，其他設定保留。';
+}
+function clearError(){ $('error').textContent='';$('hex').removeAttribute('aria-invalid');$('copy').disabled=false; }
+function apply(color,message='') { colors[$('target').value]=color;clearError();render();$('status').textContent=message; }
+$('target').addEventListener('change',()=>{clearError();render();$('status').textContent='切換到'+labels[$('target').value]+'，其他位置的配色保留。';});
+$('picker').addEventListener('input',event=>apply(event.target.value.toUpperCase()));
+$('hex').addEventListener('input',()=>{
+  const color=normalize($('hex').value);
+  if(!color){$('error').textContent='請輸入六位 0–9 或 A–F，例如 #315F57；預覽保留上一個有效顏色。';$('hex').setAttribute('aria-invalid','true');$('copy').disabled=true;return;}
+  colors[$('target').value]=color;clearError();render(false);$('status').textContent='已套用 '+color;
+});
+$('hex').addEventListener('blur',()=>{if(normalize($('hex').value))render();});
+$('random').addEventListener('click',()=>{
+  const value=Math.floor(Math.random()*0x1000000).toString(16).padStart(6,'0').toUpperCase();
+  apply('#'+value,'隨機色已套用，請觀察是否好讀。');
+});
+$('reset').addEventListener('click',()=>{colors={...defaults};clearError();render();$('status').textContent='三個位置都已還原。';});
+$('copy').addEventListener('click',async()=>{
+  const color=normalize($('hex').value); if(!color)return;
+  try {
+    if(!navigator.clipboard || !navigator.clipboard.writeText)throw new Error('unavailable');
+    await navigator.clipboard.writeText(color);
+    $('status').textContent='已複製 '+color+'。請貼到活動 05 的 CSS。';
+  }catch{
+    $('hex').value=color;$('hex').focus();$('hex').select();
+    $('status').textContent='瀏覽器未允許自動複製，已選取色碼。請按 Ctrl+C（Mac：Command+C），或使用右鍵複製。';
+  }
+});
+const palette=[['鼠尾草綠','#315F57'],['藍綠','#17596E'],['陶土','#A65D46'],['紫色','#704B78'],['金黃','#E1B65E'],['米白','#F5F2EB'],['純紅','#FF0000'],['純綠','#00FF00'],['純藍','#0000FF'],['黑','#000000'],['白','#FFFFFF']];
+for(const [name,color] of palette){const b=document.createElement('button');b.type='button';b.className='swatch';b.style.backgroundColor=color;b.setAttribute('aria-label',name+' '+color);b.title=name+' '+color;b.addEventListener('click',()=>apply(color,'已選擇'+name+' '+color));$('palette').appendChild(b);}
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>週末創作體驗報名表</title>
+</head>
+<body>
+  <h1>週末創作體驗報名表</h1>
+  <p>這是介面練習，請用虛構暱稱試填。資料不會送出或保存，不能當成正式報名。</p>
+  <!-- 本次使用獨立表單元件練習；沒有提交表單，也沒有資料儲存功能。 -->
+  <h2>你想參加什麼？</h2>
+  <p>
+    <label for="nickname">你的暱稱</label>
+    <input id="nickname" name="nickname" type="text" placeholder="例如：小海豚">
+  </p>
+  <p>
+    <label for="workshop">想參加的活動</label>
+    <select id="workshop" name="workshop">
+      <option value="">請選擇活動</option>
+      <option value="drawing">插畫小卡</option>
+      <option value="story">故事創作</option>
+    </select>
+  </p>
+  <fieldset>
+    <legend>參加時段（單選）</legend>
+    <p><label><input type="radio" name="session" value="morning"> 上午場</label></p>
+    <p><label><input type="radio" name="session" value="afternoon"> 下午場</label></p>
+  </fieldset>
+  <fieldset>
+    <legend>想練習的能力（可複選）</legend>
+    <p><label><input type="checkbox" name="skills" value="ideas"> 發想點子</label></p>
+    <p><label><input type="checkbox" name="skills" value="expression"> 表達想法</label></p>
+  </fieldset>
+  <p>
+    <label for="message">想告訴老師的事</label><br>
+    <textarea id="message" name="message" rows="3" cols="32" placeholder="例如：我想和同學一起完成作品"></textarea>
+  </p>
+  <button type="button" disabled>報名功能尚未開放</button>
+  <p>這個按鈕刻意停用。HTML 可以提供輸入與選擇介面，但這份練習沒有接上處理或儲存資料的功能。</p>
+</body>
+</html>

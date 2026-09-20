@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>讓更多人能使用網站</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 24px; font-family: "Microsoft JhengHei", sans-serif; color: #243d46; background: #f5f2eb; line-height: 1.7; }
+h1 { line-height: 1.3; } a { color: #17596e; }
+.note { padding: 12px; background: #e5eeeb; }
+/* 以下問題是教學用反例，不是推薦樣式 */
+.panel { background: #ffffff; padding: 20px; max-width: 720px; }
+.intro { color: #bbbbbb; }
+/* 反例：取消鍵盤焦點外框 */
+a:focus, input:focus, select:focus { outline: none; }
+.status { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: #3b8059; }
+input, select { max-width: 100%; padding: 10px; font: inherit; }
+
+</style>
+</head>
+<body>
+<h1>讓更多人能使用網站</h1>
+<p class="note">機檢練習：先用 WAVE 檢查本頁，記錄低對比與缺少表單標籤的問題；手動修改後再檢查。鍵盤焦點及只有顏色的狀態仍需人工測試。表單僅供試填，不傳送或保存資料。</p>
+<p><a href="https://wave.webaim.org/">開啟 WAVE 線上檢查</a>：需先發布本頁，輸入此頁的公開網址；file:/// 本機位址不能交給線上版檢查。若教室已有 WAVE 擴充功能，可在允許存取檔案網址後直接檢查本機頁面。</p>
+<main class="panel"><h2>故事創作社</h2>
+<p class="intro">歡迎喜歡故事的你，一起練習角色設計和情節安排。</p>
+<p>活動狀態：<span class="status" aria-hidden="true"></span></p>
+<p><a href="#details">閱讀活動說明</a></p>
+<p><span>你的暱稱</span><br><input id="name" type="text" ></p>
+<p><label for="session">選擇時段</label><br><select id="session"><option>上午場</option><option>下午場</option></select></p>
+<section id="details" tabindex="-1"><h2>活動說明</h2><p>準備紙筆，設計一個角色，向同學介紹他的故事。</p></section></main>
+</body>
+</html>

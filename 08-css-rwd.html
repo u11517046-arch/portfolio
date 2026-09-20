@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>從電腦版變成手機版</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 24px; font-family: "Microsoft JhengHei", sans-serif; color: #243d46; background: #f5f2eb; line-height: 1.7; }
+h1 { line-height: 1.3; } a { color: #17596e; }
+.note { padding: 12px; background: #e5eeeb; }
+/* 這份素材刻意留下窄螢幕問題，供課堂修正 */
+.page { width: 960px; background: white; padding: 24px; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.card { border: 1px solid #b9cfc5; padding: 16px; }
+input { width: 420px; padding: 10px; font: inherit; }
+
+</style>
+</head>
+<body>
+<h1>從電腦版變成手機版</h1>
+<p class="note">待修正案例：先縮窄視窗，找出橫向捲動、卡片與輸入欄位的問題。不要用隱藏溢出把內容裁掉。</p>
+<main class="page"><h2>我的作品展</h2>
+<div class="cards"><article class="card"><h3>故事設計</h3><p>用角色帶領讀者思考。</p></article><article class="card"><h3>科學探索</h3><p>比較預測與觀察結果。</p></article><article class="card"><h3>校園導覽</h3><p>帶訪客認識學習空間。</p></article></div>
+<p><label for="nickname">試填暱稱（不會送出或保存）</label><br><input id="nickname" type="text" placeholder="請用虛構暱稱"></p></main>
+</body>
+</html>
