@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>紙橋挑戰社｜活動準備頁</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            background: linear-gradient(135deg, #17110a, #382514);
+            color: #fffaf2;
+        }
+
+        .container {
+            width: min(900px, 90%);
+            margin: auto;
+            padding: 60px 0;
+        }
+
+        .back {
+            color: #fbbf24;
+            text-decoration: none;
+        }
+
+        .hero {
+            margin-top: 30px;
+            padding: 45px;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .tag {
+            background: #fbbf24;
+            color: #451a03;
+            padding: 7px 14px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: clamp(32px, 6vw, 52px);
+            margin: 25px 0 15px;
+        }
+
+        .intro {
+            color: #f8dfae;
+            line-height: 1.9;
+        }
+
+        .section {
+            margin-top: 22px;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.07);
+        }
+
+        h2 {
+            color: #fbbf24;
+        }
+
+        ul, ol {
+            line-height: 2.2;
+            color: #f7e6c2;
+            font-size: 17px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .team {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .member {
+            padding: 22px;
+            background: rgba(251,191,36,0.1);
+            border-radius: 15px;
+        }
+
+        .member h3 {
+            color: #fde68a;
+        }
+
+        .member p {
+            line-height: 1.8;
+            color: #ead9b7;
+        }
+
+        footer {
+            text-align: center;
+            color: #ad9470;
+            margin-top: 45px;
+        }
+
+        @media (max-width: 700px) {
+            .team {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <a class="back" href="index.html">← 回到作品集</a>
+
+    <section class="hero">
+        <span class="tag">HTML 實作練習 03</span>
+
+        <h1>🌉 紙橋挑戰社</h1>
+
+        <p class="intro">
+            我們要用簡單的材料，設計一座能承重的紙橋。
+        </p>
+    </section>
+
+    <section class="section">
+        <h2>🎒 要帶的材料</h2>
+
+        <ul>
+            <li>A4 紙 3 張</li>
+            <li>膠帶 1 卷</li>
+            <li>積木 10 個</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>🚀 挑戰步驟</h2>
+
+        <ol>
+            <li>先畫出紙橋草圖</li>
+            <li>再折出橋面並固定</li>
+            <li>逐一放上積木，觀察能承受的重量</li>
+            <li>記錄結果，討論如何改進</li>
+        </ol>
+    </section>
+
+    <section class="section">
+        <h2>👥 小組分工</h2>
+
+        <div class="team">
+
+            <div class="member">
+                <h3>✏️ 設計員</h3>
+                <p>
+                    畫出紙橋草圖；<br>
+                    預計成果是一張草圖。
+                </p>
+            </div>
+
+            <div class="member">
+                <h3>🔧 製作員</h3>
+                <p>
+                    依照草圖組裝；<br>
+                    預計成果是一座紙橋。
+                </p>
+            </div>
+
+            <div class="member">
+                <h3>📝 紀錄員</h3>
+                <p>
+                    記錄測試結果；<br>
+                    預計成果是一份測試紀錄。
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        HTML 實作練習 · 03
+    </footer>
+
+</div>
+
+</body>
+</html>
