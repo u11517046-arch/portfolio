@@ -3,69 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>校園自然觀察任務卡</title>
+
+    <title>校園自然觀察任務卡｜吳畇珊</title>
 
     <style>
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-            background: linear-gradient(135deg, #071812, #123524);
+            background:
+                radial-gradient(circle at top right, rgba(74, 222, 128, 0.12), transparent 30%),
+                linear-gradient(135deg, #071812, #123524);
             color: #f5fff8;
+            line-height: 1.8;
         }
 
         .container {
-            width: min(900px, 90%);
+            width: min(1000px, 92%);
             margin: auto;
-            padding: 60px 0;
+            padding: 45px 0 70px;
         }
 
+        /* 回作品集 */
         .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             color: #86efac;
             text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
+        .back:hover {
+            color: #ffffff;
+            transform: translateX(-4px);
+        }
+
+        /* 首頁區 */
         .hero {
+            position: relative;
+            overflow: hidden;
             margin-top: 30px;
-            padding: 45px;
-            border-radius: 25px;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.12);
+            padding: 55px;
+            border-radius: 30px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(74, 222, 128, 0.15),
+                    rgba(255, 255, 255, 0.05)
+                );
+            border: 1px solid rgba(134, 239, 172, 0.25);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero::after {
+            content: "🌿";
+            position: absolute;
+            right: 45px;
+            bottom: 15px;
+            font-size: 110px;
+            opacity: 0.08;
         }
 
         .tag {
             display: inline-block;
-            padding: 7px 14px;
+            padding: 7px 15px;
             border-radius: 30px;
             background: #4ade80;
             color: #052e16;
             font-weight: bold;
+            font-size: 14px;
         }
 
         h1 {
-            font-size: clamp(32px, 6vw, 52px);
+            font-size: clamp(32px, 6vw, 56px);
+            line-height: 1.25;
             margin: 20px 0;
         }
 
         .intro {
             color: #c7f9d7;
-            font-size: 18px;
+            font-size: 19px;
             line-height: 1.9;
+            max-width: 700px;
         }
 
+        /* 任務卡片 */
         .task {
-            margin-top: 22px;
-            padding: 30px;
-            border-radius: 20px;
-            background: rgba(255,255,255,0.07);
+            margin-top: 25px;
+            padding: 32px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.09);
             border-left: 5px solid #4ade80;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+            transition: 0.3s;
+        }
+
+        .task:hover {
+            transform: translateY(-4px);
+            border-color: rgba(134, 239, 172, 0.35);
         }
 
         h2 {
             color: #86efac;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 26px;
         }
 
         p {
@@ -73,22 +125,131 @@
             color: #d8fbe2;
         }
 
+        /* 媒體區 */
         .media-box {
             padding: 25px;
-            margin-top: 18px;
-            border-radius: 15px;
-            background: rgba(74,222,128,0.1);
+            margin-top: 20px;
+            border-radius: 20px;
+            background: rgba(74, 222, 128, 0.08);
+            border: 1px solid rgba(134, 239, 172, 0.15);
             text-align: center;
         }
 
-        .media-box span {
-            font-size: 45px;
+        .media-title {
+            color: #86efac;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
 
+        /* 圖片 */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .image-card {
+            background: rgba(0, 0, 0, 0.18);
+            border-radius: 16px;
+            padding: 12px;
+            overflow: hidden;
+        }
+
+        .image-card img {
+            display: block;
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .image-card p {
+            margin: 8px 0 0;
+            color: #b7e8c7;
+            font-size: 14px;
+        }
+
+        /* 音訊 */
+        audio {
+            width: 100%;
+            max-width: 650px;
+            margin-top: 10px;
+        }
+
+        /* 影片 */
+        .video-wrapper {
+            margin-top: 15px;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        video {
+            display: block;
+            width: 100%;
+            max-height: 520px;
+            background: #000;
+        }
+
+        /* 提醒 */
+        .tip {
+            margin-top: 20px;
+            padding: 16px 20px;
+            border-radius: 14px;
+            background: rgba(74, 222, 128, 0.08);
+            color: #c7f9d7;
+            border: 1px dashed rgba(134, 239, 172, 0.3);
+        }
+
+        .tip strong {
+            color: #86efac;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
             color: #86a894;
-            margin-top: 45px;
+            margin-top: 55px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        footer p {
+            color: #86a894;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        /* 手機版 */
+        @media (max-width: 700px) {
+
+            .container {
+                width: 90%;
+                padding-top: 30px;
+            }
+
+            .hero {
+                padding: 35px 25px;
+            }
+
+            .hero::after {
+                display: none;
+            }
+
+            .task {
+                padding: 25px 20px;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .image-card img {
+                height: 230px;
+            }
         }
     </style>
 </head>
@@ -97,33 +258,101 @@
 
 <div class="container">
 
-    <a class="back" href="index.html">← 回到作品集</a>
+    <!-- 回到作品集 -->
+    <a class="back" href="index.html">
+        ← 回到作品集
+    </a>
 
+
+    <!-- 首頁 -->
     <section class="hero">
-        <span class="tag">HTML 實作練習 02</span>
 
-        <h1>🌿 校園自然觀察任務卡</h1>
+        <span class="tag">
+            HTML 實作練習 02
+        </span>
+
+        <h1>
+            🌿 校園自然觀察任務卡
+        </h1>
 
         <p class="intro">
             今天我們用眼睛觀察，也用文字記錄發現。
         </p>
+
+        <div class="tip">
+            <strong>🔍 今日任務：</strong>
+            仔細觀察校園中的葉片與花朵，
+            並透過圖片、聲音與影片完成自然觀察。
+        </div>
+
     </section>
 
+
+    <!-- 任務一 -->
     <section class="task">
-        <h2>🔎 任務一：看看葉脈</h2>
+
+        <h2>
+            🔎 任務一：看看葉脈
+        </h2>
 
         <p>
             觀察葉片圖片，找出葉脈延伸的方向。
+            仔細看看葉片上的紋路，你發現它們是往哪個方向延伸呢？
         </p>
 
         <div class="media-box">
-            <span>🍃</span>
-            <p>葉片觀察區</p>
+
+            <div class="media-title">
+                🍃 葉片觀察區
+            </div>
+
+            <div class="image-grid">
+
+                <div class="image-card">
+
+                    <img
+                        src="leaf-photo.png"
+                        alt="葉片照片"
+                    >
+
+                    <p>
+                        圖片一｜葉片觀察
+                    </p>
+
+                </div>
+
+                <div class="image-card">
+
+                    <img
+                        src="flower-transparent.png"
+                        alt="透明背景自然素材"
+                    >
+
+                    <p>
+                        圖片二｜自然素材觀察
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="tip">
+                <strong>💡 想一想：</strong>
+                葉脈的方向有沒有規律？
+                你觀察到什麼特別的地方？
+            </div>
+
         </div>
+
     </section>
 
+
+    <!-- 任務二 -->
     <section class="task">
-        <h2>🔊 任務二：準備開始</h2>
+
+        <h2>
+            🔊 任務二：準備開始
+        </h2>
 
         <p>
             按下播放，聽到三個由低到高的短音後，
@@ -131,27 +360,119 @@
         </p>
 
         <div class="media-box">
-            <span>▶️</span>
-            <p>音訊播放區</p>
+
+            <div class="media-title">
+                🎵 觀察開始提示音
+            </div>
+
+            <div style="font-size: 55px; margin-bottom: 10px;">
+                🔊
+            </div>
+
+            <audio controls>
+                <source src="notice.wav" type="audio/wav">
+
+                您的瀏覽器不支援音訊播放。
+            </audio>
+
+            <div class="tip">
+                <strong>▶ 操作方式：</strong>
+                按下播放按鈕，聽完提示音後，
+                就可以開始進行自然觀察。
+            </div>
+
         </div>
+
     </section>
 
+
+    <!-- 任務三 -->
     <section class="task">
-        <h2>🌸 任務三：觀察花朵</h2>
+
+        <h2>
+            🌸 任務三：觀察花朵
+        </h2>
 
         <p>
             播放短片，看看花朵怎麼移動，
-            再用一句話描述。
+            再用一句話描述你的觀察結果。
         </p>
 
         <div class="media-box">
-            <span>🎬</span>
-            <p>影片觀察區</p>
+
+            <div class="media-title">
+                🎬 花朵影片觀察區
+            </div>
+
+            <div class="video-wrapper">
+
+                <video controls>
+
+                    <source
+                        src="flower.mp4"
+                        type="video/mp4"
+                    >
+
+                    您的瀏覽器不支援影片播放。
+
+                </video>
+
+            </div>
+
+            <div class="tip">
+                <strong>📝 觀察任務：</strong>
+                看完影片後，請用一句話描述
+                「花朵是怎麼移動的」。
+            </div>
+
         </div>
+
     </section>
 
+
+    <!-- 額外圖片 -->
+    <section class="task">
+
+        <h2>
+            🌼 延伸觀察：花朵照片
+        </h2>
+
+        <p>
+            除了影片之外，也可以仔細觀察花朵的照片，
+            找找看花瓣、花朵與周圍環境的細節。
+        </p>
+
+        <div class="media-box">
+
+            <div class="image-card">
+
+                <img
+                    src="flower-photo.png"
+                    alt="花朵照片"
+                >
+
+                <p>
+                    花朵觀察照片
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
     <footer>
-        HTML 實作練習 · 02
+
+        <p>
+            HTML 實作練習 · 02
+        </p>
+
+        <p>
+            校園自然觀察任務卡｜吳畇珊
+        </p>
+
     </footer>
 
 </div>
