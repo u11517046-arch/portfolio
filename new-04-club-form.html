@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放學後社團體驗表</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            background: linear-gradient(135deg, #140b1f, #28113d);
+            color: #fff;
+        }
+
+        .container {
+            width: min(750px, 90%);
+            margin: auto;
+            padding: 60px 0;
+        }
+
+        .back {
+            color: #d8b4fe;
+            text-decoration: none;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #c084fc;
+            color: #2e1065;
+            padding: 7px 14px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: clamp(32px, 6vw, 50px);
+            margin: 20px 0;
+        }
+
+        .notice {
+            background: rgba(250,204,21,0.12);
+            border: 1px solid rgba(250,204,21,0.3);
+            padding: 18px;
+            border-radius: 15px;
+            color: #fde68a;
+            line-height: 1.8;
+        }
+
+        form {
+            background: rgba(255,255,255,0.08);
+            padding: 35px;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .group {
+            margin-bottom: 28px;
+        }
+
+        label,
+        legend {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #e9d5ff;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.2);
+            color: white;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .option {
+            padding: 13px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .option label {
+            display: inline;
+            margin-left: 8px;
+            font-weight: normal;
+            color: #f3e8ff;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 14px;
+            background: #c084fc;
+            color: #2e1065;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        .small {
+            color: #b9a6c9;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            color: #9d83b3;
+            margin-top: 35px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <a class="back" href="index.html">← 回到作品集</a>
+
+    <section class="hero">
+        <span class="tag">HTML 實作練習 04</span>
+
+        <h1>🎨 放學後社團體驗表</h1>
+
+        <p>一起找到自己喜歡的活動吧！</p>
+    </section>
+
+    <div class="notice">
+        ⚠️ 這是介面練習，資料不會送出或保存，
+        不能當成正式報名。
+    </div>
+
+    <br>
+
+    <form>
+
+        <div class="group">
+            <label for="nickname">我的暱稱</label>
+
+            <input
+                type="text"
+                id="nickname"
+                placeholder="例如小星星"
+            >
+        </div>
+
+        <div class="group">
+            <fieldset>
+                <legend>想體驗的社團</legend>
+
+                <div class="options">
+
+                    <div class="option">
+                        <input type="radio" id="story" name="club">
+                        <label for="story">故事劇場</label>
+                    </div>
+
+                    <div class="option">
+                        <input type="radio" id="science" name="club">
+                        <label for="science">科學手作</label>
+                    </div>
+
+                    <div class="option">
+                        <input type="radio" id="game" name="club">
+                        <label for="game">桌遊挑戰</label>
+                    </div>
+
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="group">
+            <fieldset>
+                <legend>方便參加的日子</legend>
+
+                <div class="options">
+
+                    <div class="option">
+                        <input type="checkbox" id="tue">
+                        <label for="tue">星期二</label>
+                    </div>
+
+                    <div class="option">
+                        <input type="checkbox" id="thu">
+                        <label for="thu">星期四</label>
+                    </div>
+
+                    <div class="option">
+                        <input type="checkbox" id="fri">
+                        <label for="fri">星期五</label>
+                    </div>
+
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="group">
+            <fieldset>
+                <legend>我期待的活動方式</legend>
+
+                <div class="options">
+
+                    <div class="option">
+                        <input type="checkbox" id="make">
+                        <label for="make">動手製作</label>
+                    </div>
+
+                    <div class="option">
+                        <input type="checkbox" id="team">
+                        <label for="team">和同學合作</label>
+                    </div>
+
+                    <div class="option">
+                        <input type="checkbox" id="share">
+                        <label for="share">上台分享</label>
+                    </div>
+
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="group">
+            <label for="message">想告訴老師的事</label>
+
+            <textarea
+                id="message"
+                placeholder="例如我想和同學一起完成一個小作品"
+            ></textarea>
+        </div>
+
+        <button type="button">
+            送出練習表
+        </button>
+
+        <p class="small">
+            ※ 練習版，尚未開放報名
+        </p>
+
+    </form>
+
+    <footer>
+        HTML 實作練習 · 04
+    </footer>
+
+</div>
+
+</body>
+</html>
